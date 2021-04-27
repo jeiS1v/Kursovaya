@@ -1,0 +1,34 @@
+﻿@{
+    Layout = "_Layout";
+    if (!string.IsNullOrWhiteSpace(ViewBag.Oshibka))
+    {
+        <div class="alert alert-danger" role="alert">
+            Ошибка: @ViewBag.Oshibka
+        </div>
+    }
+}
+<form method="post" action="/Home/AddStudent">
+    <div class="input-group" style="margin-top:20px">
+        <span class="input-group-text">ФИО</span>
+        <input type="text" name="Surname" class="form-control" placeholder="Фамилия" />
+        <input type="text" name="Name" class="form-control" placeholder="Имя" />
+        <input type="text" name="Patronymic" class="form-control" placeholder="Отчество" />
+    </div>
+    <div class="row" style="margin-top:25px">
+     <div class="col">
+         <input type="text" name="State" class="form-control"placeholder="Статус" />
+     </div>
+<div class="col">
+    <input type="text" name="Course" class="form-control" placeholder="Курс" />
+</div>
+</div>
+<div class="col">
+    <label for="Date" class="col-form-label"></label>
+    <input type="date" name="Date" class="form-control" />
+</div>
+<div class="row">
+    <div class="col">
+        <button style="float:right; margin-top:25px " type="submit">Отправить</button>
+    </div>
+</div>
+</form>

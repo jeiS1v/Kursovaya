@@ -1,0 +1,43 @@
+﻿@model IEnumerable<kursa4.Models.Student>
+@{
+    Layout = "_Layout";
+}
+
+Студенты
+<a href="/Home/Append" class="link-primary">Добавить студента</a>
+
+<table class="table border-primary">
+    <thead class="border-primary">
+        <tr class="border-primary">
+            <td scope="col">№</td>
+            <td scope="col">Имя</td>
+            <td scope="col">Фамилия</td>
+            <td scope="col">Отчество</td>
+            <td scope="col">Текущий статус</td>
+            <td scope="col">Курс</td>
+            <td scope="col">Дата зачисления</td>
+            <td scope="col"></td>
+        </tr>
+    </thead>
+    <tbody class="border-primary">
+        @{
+            int i = 1;
+        }
+        @foreach (var student in Model)
+        {
+        <tr>
+            <td scope="row">@i</td>
+            <td>@student.Name</td>
+            <td>@student.Surname</td>
+            <td>@student.Patronymic</td>
+            <td>@student.State</td>
+            <td>@student.Course</td>
+            <td>@student.Date.ToLongDateString()</td>
+            <td><a class="" href="~/Home/Editing/@student.id">Редактировать</a></td>
+        </tr>
+        {
+        i = i + 1;
+        }
+        }
+    </tbody>
+</table>
